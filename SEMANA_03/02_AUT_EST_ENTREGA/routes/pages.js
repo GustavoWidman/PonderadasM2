@@ -47,7 +47,6 @@ router.get("/list/:id", urlencodedParser, (req, res) => {
 });
 
 router.post("/insert/submit", urlencodedParser, (req, res) => {
-    console.log("PASSING THROUGH")
     db.serialize(() => {
         db.get(`SELECT MAX(id_pessoa) AS id FROM pessoa`, (err, result) => {
             id = result.id + 1;
