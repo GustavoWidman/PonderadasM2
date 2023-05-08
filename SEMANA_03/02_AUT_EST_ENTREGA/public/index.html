@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InPuT</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #121212">
+	<!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Editor de Currículos</a>
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/list">Listar</a>
+                </li>
+                <!-- if (locals.status == false) {  -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/insert" id="insert-page">Inserir</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/update" id="update-page">Atualizar</a>
+                </li>
+                <!-- } else {  -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete" id="remove-page">Remover</a>
+                </li>
+                <!-- } -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- WELCOME CONTAINER -->
+	<div class="mx-auto p-2" style="width: 50%;">
+		<div class="input-group mb-3">
+			<span class="input-group-text">Nome</span>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Nome"
+			  	aria-label="Nome"
+			/>
+			<span class="input-group-text">Sobrenome</span>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Sobrenome"
+			  	aria-label="Sobrenome"
+			/>
+	  	</div>
+
+		<!--
+	    <div class="input-group mb-3">
+	      	<span class="input-group-text" id="basic-addon1">Nome</span>
+	      	<input
+	        	type="text"
+	        	class="form-control"
+	        	placeholder="Username"
+	        	aria-label="Username"
+	        	aria-describedby="basic-addon1"
+	      	/>
+	    </div>
+
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Sobrenome</span>
+			<input
+			  type="text"
+			  class="form-control"
+			  placeholder="Username"
+			  aria-label="Username"
+			  aria-describedby="basic-addon1"
+			/>
+	  	</div>
+		-->
+
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Cargo Desejado</span>
+			<input
+			  	type="text"
+			  	class="form-control"
+			 	placeholder="Cargo Desejado"
+			  	aria-label="Cargo Desejado"
+			 	aria-describedby="basic-addon1"
+			/>
+	  	</div>
+
+		<div class="input-group mb-3">
+			<span class="input-group-text">Endereço</span>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Rua"
+			  	aria-label="Rua"
+			/>
+			<input
+			 	type="text"
+			 	class="form-control"
+			 	placeholder="Número"
+			  	aria-label="Número"
+			/>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Complemento"
+			  	aria-label="Complemento"
+			/>
+	  	</div>
+
+		<div class="input-group mb-3">
+			<span class="input-group-text">Telefone</span>
+			<input
+				disabled
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="+55"
+			  	aria-label=""
+			/>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Código de área"
+			  	aria-label="Código de área"
+			/>
+			<input
+			  	type="text"
+			  	class="form-control"
+			 	 placeholder="Número"
+			  	aria-label="Número"
+			/>
+	  	</div>
+
+		<div class="input-group mb-3">
+			<span class="input-group-text">Email</span>
+			<input
+			  	type="text"
+			  	class="form-control"
+			  	placeholder="Email"
+			  	aria-label="Email"
+			/>
+	  	</div>
+
+		<div class="input-group">
+			<span class="input-group-text">Breve Descrição</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+		</div>
+
+        <div class="d-grid gap-2 mx-auto p-2" style="width: 100%">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+	</div>
+    <!-- END WELCOME CONTAINER -->
+
+    <!-- SCRIPTS -->
+    <!-- <script src="js/index.js"></script> -->
+    <!-- END SCRIPTS -->
+  </body>
+</html>
