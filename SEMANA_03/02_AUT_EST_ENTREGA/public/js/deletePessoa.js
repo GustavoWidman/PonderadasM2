@@ -1,7 +1,7 @@
 import * as bootstrap from 'bootstrap'
 
 form.addEventListener("submit", () => {
-    fetch(`/delete/${id.value}`, {
+    fetch(`/api/delete/${id.value}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -12,7 +12,6 @@ form.addEventListener("submit", () => {
         if (data.status && data.text) {
             if (document.getElementById('remove_button')) {
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
-                console.log(data.status, " ", data.text)
                 if (data.status === "success") {
                     document.getElementById('toast-title').innerHTML = "Sucesso!"
                     document.getElementById('toast-text').innerHTML = data.text

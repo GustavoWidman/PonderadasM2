@@ -1,7 +1,7 @@
 import * as bootstrap from 'bootstrap'
 
 form.addEventListener("submit", () => {
-    fetch(`/list/${id.value}`, {
+    fetch(`/api/list/${id.value}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -31,7 +31,6 @@ form.addEventListener("submit", () => {
         if (json.status && json.text) {
             if (document.getElementById('list-button')) {
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
-                console.log(json.status, " ", json.text)
                 if (json.status === "success") {
                     document.getElementById('toast-title').innerHTML = "Sucesso!"
                     document.getElementById('toast-text').innerHTML = json.text
@@ -43,7 +42,6 @@ form.addEventListener("submit", () => {
                     document.getElementById('toast-img').src="./assets/wrong.svg"
                 }
                 toastBootstrap.show()
-                console.log("toasted")
             }
         }
     });

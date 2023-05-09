@@ -1,5 +1,7 @@
+import * as bootstrap from 'bootstrap'
+
 form.addEventListener("submit", () => {
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -20,7 +22,6 @@ form.addEventListener("submit", () => {
 
         // fetches the phone number and splits it into ddd and number
         let telefone = json.telefone.split(" ");
-        console.log(telefone)
         ddd.value = telefone[1];
         telefone_numero.value = telefone[2];
 
@@ -28,9 +29,8 @@ form.addEventListener("submit", () => {
         descricao.value = json.descricao;
 
         if (json.status && json.text) {
-            if (document.getElementById('remove_button')) {
+            if (document.getElementById('achar_button')) {
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
-                console.log(json.status, " ", json.text)
                 if (json.status === "success") {
                     document.getElementById('toast-title').innerHTML = "Sucesso!"
                     document.getElementById('toast-text').innerHTML = json.text
@@ -63,63 +63,158 @@ nome_button.addEventListener("click", () => {
     let body = {
         nome: nome.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
         }
-    });
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('nome_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
+        }
+    })
 });
 
 sobrenome_button.addEventListener("click", () => {
     let body = {
         sobrenome: sobrenome.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
         }
-    });
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('sobrenome_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
+        }
+    })
 });
 
 cargo_button.addEventListener("click", () => {
     let body = {
         cargo_aplicado: cargo_aplicado.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
         }
-    });
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('cargo_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
+        }
+    })
 });
 
 endereco_button.addEventListener("click", () => {
     let body = {
         endereco: rua.value + ", " + numero.value + ", " + complemento.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
+        }
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('endereco_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
         }
     });
 });
 
 telefone_button.addEventListener("click", () => {
     let body = {
-        telefone: ddd.value + " " + telefone_numero.value
+        telefone: "+55 " + ddd.value + " " + telefone_numero.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
+        }
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('telefone_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
         }
     });
 });
@@ -128,11 +223,30 @@ email_button.addEventListener("click", () => {
     let body = {
         email: email.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
+        }
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('email_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
         }
     });
 });
@@ -141,11 +255,30 @@ descricao_button.addEventListener("click", () => {
     let body = {
         descricao: descricao.value
     }
-    fetch(`/update/${id.value}`, {
+    fetch(`/api/update/${id.value}`, {
         method: "PUT",
         body: JSON.stringify(body),
         headers: {
             "Content-Type": "application/json"
         }
-    });
+    }).then((res) => {
+        return res.json();
+    }).then((json) => {
+        if (json.status && json.text) {
+            if (document.getElementById('descricao_button')) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if (json.status === "success") {
+                    document.getElementById('toast-title').innerHTML = "Sucesso!"
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/check.svg"
+                }
+                else if (json.status === "error") {
+                    document.getElementById('toast-title').innerHTML = "Erro."
+                    document.getElementById('toast-text').innerHTML = json.text
+                    document.getElementById('toast-img').src="./assets/wrong.svg"
+                }
+                toastBootstrap.show()
+            }
+        }
+    })
 });

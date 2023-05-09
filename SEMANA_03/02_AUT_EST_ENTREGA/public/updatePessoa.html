@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InPuT</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>CRUD - Gustavo</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,20 +32,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/list">Listar</a>
-                </li>
-                <!-- if (locals.status == false) {  -->
-                <li class="nav-item">
                     <a class="nav-link" href="/insert" id="insert-page">Inserir</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/list">Listar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#" id="update-page">Atualizar</a>
                 </li>
-                <!-- } else {  -->
                 <li class="nav-item">
                     <a class="nav-link" href="/delete" id="remove-page">Remover</a>
                 </li>
-                <!-- } -->
                 </ul>
             </div>
         </div>
@@ -55,7 +53,6 @@
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <!-- our svg is 800x800. to reduce it we need to  -->
                 <img id="toast-img" src="./assets/check.svg" class="rounded me-2" alt="..." height="15px" width="15px">
                 <strong class="me-auto" id="toast-title">Bootstrap</strong>
                 <small>Agora</small>
@@ -69,11 +66,11 @@
     <!-- END TOAST -->
 
     <!-- WELCOME CONTAINER -->
-    <form class="row g-3" id="form" onsubmit="return false;">
-        <div class="mx-auto p-2" style="width: 50%;">
+    <form class="row g-3 mx-auto" id="form" onsubmit="return false;" style="width: 50%;">
+        <div class="mx-auto p-2 pt-4">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="ID" aria-label="ID" id="id">
-                <button type="submit" class="btn btn-primary">Achar</button>
+                <button type="submit" class="btn btn-primary" id="achar_button">Achar</button>
             </div>
     </form>
             <div class="input-group mb-3">
@@ -192,7 +189,16 @@
     <!-- END WELCOME CONTAINER -->
 
     <!-- SCRIPTS -->
-    <script src="js/updatePessoa.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/esm/popper.min.js",
+        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.esm.min.js"
+      }
+    }
+    </script>
+    <script src="js/updatePessoa.js" type="module"></script>
     <!-- END SCRIPTS -->
   </body>
 </html>

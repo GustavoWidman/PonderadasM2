@@ -1,10 +1,11 @@
+import * as bootstrap from 'bootstrap'
+
 form.addEventListener("submit", () => {
-    // compila o endereco com rua, numero e complemento
     let endereco = rua.value + ", " + numero.value + ", " + complemento.value;
 
-    let telefone = "+55" + ddd.value + " " + numero_telefone.value;
+    let telefone = "+55 " + ddd.value + " " + numero_telefone.value;
 
-    let email_address = email.value; // this doesnt work because email is a reserved word
+    let email_address = email.value;
 
     let descricao_texto = descricao.value;
 
@@ -32,7 +33,7 @@ form.addEventListener("submit", () => {
         descricao: descricao_texto
     }
 
-    fetch("/insert/submit", {
+    fetch("/api/insert/submit", {
         method: "POST",
         body: JSON.stringify(body),
         headers: {
@@ -42,36 +43,24 @@ form.addEventListener("submit", () => {
         return res.json();
     }).catch((err) => {
         console.log(err);
-    }).then((data) => {
-        if (data.status && data.text) {
-            if (document.getElementById('remove_button')) {
+    }).then((json) => {
+        console.log(json)
+        if (json.status && json.text) {
+            if (document.getElementById('submit-button')) {
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
-                console.log(data.status, " ", data.text)
-                if (data.status === "success") {
+                console.log(json.status, " ", json.text)
+                if (json.status === "success") {
                     document.getElementById('toast-title').innerHTML = "Sucesso!"
-                    document.getElementById('toast-text').innerHTML = data.text
+                    document.getElementById('toast-text').innerHTML = json.text
                     document.getElementById('toast-img').src="./assets/check.svg"
                 }
-                else if (data.status === "error") {
+                else if (json.status === "error") {
                     document.getElementById('toast-title').innerHTML = "Erro."
-                    document.getElementById('toast-text').innerHTML = data.text
+                    document.getElementById('toast-text').innerHTML = json.text
                     document.getElementById('toast-img').src="./assets/wrong.svg"
                 }
                 toastBootstrap.show()
             }
         }
     });
-
-
-
-    // }).then((res) => {
-    //     if (res.ok) return res.json();
-    // }
-    // ).then((json) => {
-    //     console.log(json);
-    // }
-    // ).catch((err) => {
-    //     console.log(err);
-    // }
-    // );
 });
