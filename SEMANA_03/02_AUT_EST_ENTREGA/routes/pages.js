@@ -7,12 +7,10 @@ const db = require('../routes/db-config');
 const { parse } = require('path');
 const router = express.Router(); // This is to create a router object
 
-// Home Page Route
+
 router.get("/", (req, res) => {
     res.sendFile('index.html', {root: './public'});
 })
-
-// FRONT
 
 router.get("/list", (req, res) => {
     res.sendFile('listaPessoa.html', {root: './public'});
