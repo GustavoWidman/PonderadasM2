@@ -1,4 +1,5 @@
 import * as bootstrap from 'bootstrap'
+import { post } from '../../routes/pages';
 
 form.addEventListener("submit", () => {
     let endereco = rua.value + ", " + numero.value + ", " + complemento.value;
@@ -33,6 +34,10 @@ form.addEventListener("submit", () => {
         descricao: descricao_texto
     }
 
+
+    post("/api/insert/submit", body, (data) => {
+        console.log(data)
+    })
     fetch("/api/insert/submit", {
         method: "POST",
         body: JSON.stringify(body),
