@@ -1,7 +1,7 @@
 import * as bootstrap from 'bootstrap'
 
 form.addEventListener("submit", () => {
-    console.log("clicked")
+    // console.log("clicked")
 
     let endereco = rua.value + ", " + numero.value + ", " + complemento.value;
 
@@ -106,17 +106,17 @@ form.addEventListener("submit", () => {
         contentType: "application/json",
         success: function (data) {
             if (data.status && data.text) {
-                if (document.getElementById('submit-button')) {
-                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if ($('#submit-button').length) {
+                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance($('#liveToast')[0])
                     if (data.status === "success") {
-                        document.getElementById('toast-title').innerHTML = "Sucesso!"
-                        document.getElementById('toast-text').innerHTML = data.text
-                        document.getElementById('toast-img').src="./assets/check.svg"
+                        $('#toast-title').html("Sucesso!")
+                        $('#toast-text').html(data.text)
+                        $('#toast-img').attr('src', './assets/check.svg')
                     }
                     else if (data.status === "error") {
-                        document.getElementById('toast-title').innerHTML = "Erro."
-                        document.getElementById('toast-text').innerHTML = data.text
-                        document.getElementById('toast-img').src="./assets/wrong.svg"
+                        $('#toast-title').html("Erro.")
+                        $('#toast-text').html(data.text)
+                        $('#toast-img').attr('src', './assets/wrong.svg')
                     }
                     toastBootstrap.show()
                 }

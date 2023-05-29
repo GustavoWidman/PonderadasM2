@@ -69,22 +69,21 @@ form.addEventListener("submit", () => {
         contentType: "application/json",
         success: function (data) {
             if (data.status && data.text) {
-                if (document.getElementById('remove_button')) {
-                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
+                if ($('#remove_button').length) {
+                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance($('#liveToast')[0])
                     if (data.status === "success") {
-                        document.getElementById('toast-title').innerHTML = "Sucesso!"
-                        document.getElementById('toast-text').innerHTML = data.text
-                        document.getElementById('toast-img').src="./assets/check.svg"
+                        $('#toast-title').html("Sucesso!")
+                        $('#toast-text').html(data.text)
+                        $('#toast-img').attr('src', './assets/check.svg')
                     }
                     else if (data.status === "error") {
-                        document.getElementById('toast-title').innerHTML = "Erro."
-                        document.getElementById('toast-text').innerHTML = data.text
-                        document.getElementById('toast-img').src="./assets/wrong.svg"
+                        $('#toast-title').html("Erro.")
+                        $('#toast-text').html(data.text)
+                        $('#toast-img').attr('src', './assets/wrong.svg')
                     }
                     toastBootstrap.show()
                 }
             }
         }
     });
-
 });
