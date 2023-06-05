@@ -18,6 +18,8 @@
         crossorigin="anonymous"
         />
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     </head>
     <!-- END HEAD -->
 
@@ -45,10 +47,10 @@
                         <a class="nav-link" href="/insert" id="insert-page">Inserir</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/list">Listar</a>
+                        <a class="nav-link active" aria-current="page" href="#">Listar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" id="update-page">Atualizar</a>
+                        <a class="nav-link" href="/update" id="update-page">Atualizar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/delete" id="remove-page">Remover</a>
@@ -79,15 +81,14 @@
 
 
 
-        <!-- WELCOME CONTAINER -->
+        <!-- FORM CONTAINER -->
         <form class="row g-3 mx-auto" id="form" onsubmit="return false;" style="width: 50%;">
             <div class="mx-auto p-2 pt-4">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="ID" aria-label="ID" id="id">
-                    <button type="submit" class="btn btn-primary" id="achar_button">Achar</button>
+                    <button type="submit" class="btn btn-primary" id="list-button">Achar</button>
                 </div>
-        </form>
-            <div>
+
                 <div class="input-group mb-3">
                     <span class="input-group-text">Nome</span>
                     <input
@@ -98,7 +99,6 @@
                         aria-label="Nome"
                         id="nome"
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="nome_button">Atualizar</button>
                     <span class="input-group-text">Sobrenome</span>
                     <input
                         disabled
@@ -108,7 +108,6 @@
                         aria-label="Sobrenome"
                         id="sobrenome"
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="sobrenome_button">Atualizar</button>
                 </div>
 
                 <div class="input-group mb-3">
@@ -121,7 +120,6 @@
                         aria-label="Cargo Desejado"
                         id="cargo_aplicado"
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="cargo_button">Atualizar</button>
                 </div>
 
                 <div class="input-group mb-3">
@@ -150,7 +148,6 @@
                         aria-label="Complemento"
                         id="complemento"
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="endereco_button">Atualizar</button>
                 </div>
 
                 <div class="input-group mb-3">
@@ -177,9 +174,7 @@
                         placeholder="Número"
                         aria-label="Número"
                         id="telefone_numero"
-
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="telefone_button">Atualizar</button>
                 </div>
 
                 <div class="input-group mb-3">
@@ -192,16 +187,15 @@
                         aria-label="Email"
                         id="email"
                     />
-                    <button class="btn btn-outline-secondary" type="button" id="email_button">Atualizar</button>
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-text">Breve Descrição</span>
                     <textarea class="form-control" aria-label="With textarea" disabled id="descricao"></textarea>
-                    <button class="btn btn-outline-secondary" type="button" id="descricao_button">Atualizar</button>
                 </div>
             </div>
-        <!-- END WELCOME CONTAINER -->
+        </form>
+        <!-- END FORM CONTAINER -->
 
 
 
@@ -215,7 +209,7 @@
         }
         }
         </script>
-        <script src="js/updatePessoa.js" type="module"></script>
+        <script src="js/listaPessoa.js" type="module"></script>
         <!-- END SCRIPTS -->
 
     </body>
