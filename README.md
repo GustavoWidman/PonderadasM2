@@ -1,4 +1,7 @@
 # Sobre esse repositório
+
+Esse repositório consiste de um fork do exemplo dado pelo professor. Ele reune todas as atividades de programacao que eu fiz durante o módulo 2.
+
 Neste repositório serão concentradas todas as informações necessárias relacionadas ao tutorial preparado para este módulo.
 
 - O tutorial tem por objetivo demonstrar passo-a-passo a construção das partes básicas de uma aplicação web: front-end e back-end.
